@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Certificates | Md Faysal Ahmed</title>
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: rgba(15, 23, 42, 0.82);
+      --border: rgba(148, 163, 184, 0.2);
+      --text: #f8fafc;
+      --muted: #9ca3af;
+      --primary: #38bdf8;
+      --secondary: #818cf8;
+      --green: #22c55e;
+      --shadow: 0 25px 90px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      background: var(--bg);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 30%),
+        radial-gradient(circle at top right, rgba(129, 140, 248, 0.18), transparent 30%),
+        radial-gradient(circle at bottom, rgba(34, 197, 94, 0.08), transparent 35%),
+        linear-gradient(135deg, #020617, #07111f, #020617);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      padding-top: 18px;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 14px;
+      z-index: 100;
+      width: min(1180px, 92%);
+      margin: 0 auto;
+      padding: 14px 16px;
+      border-radius: 26px;
+      border: 1px solid var(--border);
+      background: rgba(2, 6, 23, 0.76);
+      backdrop-filter: blur(22px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.34);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #020617;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 14px 35px rgba(56, 189, 248, 0.28);
+    }
+
+    .brand span {
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #cbd5e1;
+      font-size: 15px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: white;
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .hero {
+      padding: 90px 0 52px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.32);
+      background: rgba(56, 189, 248, 0.09);
+      color: #bae6fd;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 20px var(--green);
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 28px 0 44px;
+    }
+
+    .stat-card {
+      padding: 24px;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.72);
+      text-align: center;
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.25);
+    }
+
+    .stat-card h3 {
+      font-size: 36px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .stat-card p {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-bottom: 86px;
+    }
+
+    .cert-card {
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      transition: 0.25s;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .cert-img {
+      width: 100%;
+      height: 245px;
+      background: #111827;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+      overflow: hidden;
+    }
+
+    .cert-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cert-content {
+      padding: 25px;
+    }
+
+    .cert-content h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+
+    .cert-content p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .details {
+      display: grid;
+      gap: 9px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .details div {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(2, 6, 23, 0.46);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .details strong {
+      color: #e2e8f0;
+    }
+
+    .details span {
+      color: var(--primary);
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .btn {
+      display: inline-flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 15px;
+      font-weight: 900;
+      color: #020617;
+      background: linear-gradient(135deg, #38bdf8, #7dd3fc);
+      box-shadow: 0 16px 42px rgba(56, 189, 248, 0.24);
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 0 46px;
+      color: var(--muted);
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    @media (max-width: 950px) {
+      .cert-grid,
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding-top: 10px;
+      }
+
+      nav {
+        width: 94%;
+        top: 10px;
+        border-radius: 20px;
+      }
+
+      .logo {
+        width: 46px;
+        height: 46px;
+      }
+
+      .brand span {
+        font-size: 15px;
+      }
+
+      .hero {
+        padding: 64px 0 34px;
+      }
+
+      h1 {
+        letter-spacing: -1.4px;
+      }
+
+      .cert-img {
+        height: 210px;
+      }
+
+      .details div {
+        flex-direction: column;
+      }
+
+      .details span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <nav>
+      <a href="index.html" class="brand">
+        <div class="logo">FA</div>
+        <span>Md Faysal Ahmed</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="certificates.html" class="active">Certificates</a>
+        <a href="index.html#bio-pdf">Bio PDF</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+
+    <main class="container">
+
+      <section class="hero">
+        <div class="badge">
+          <span class="dot"></span>
+          My Learning Achievements
+        </div>
+
+        <h1>Course <span class="gradient-text">Certificates</span></h1>
+
+        <p>
+          This page contains my course certificates, short descriptions,
+          platform details, course topics, and completion information.
+        </p>
+      </section>
+
+      <section class="dashboard">
+        <div class="stat-card">
+          <h3>3+</h3>
+          <p>Certificates</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>3</h3>
+          <p>Learning Areas</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>2026</h3>
+          <p>Updated Year</p>
+        </div>
+      </section>
+
+      <section class="cert-grid">
+
+        <div class="cert-card">
+          <div class="cert-img">
+            <img src="certificate-1.jpg" alt="Web Development Certificate" />
+          </div>
+
+          <div class="cert-content">
+            <h2>Web Development Certificate</h2>
+
+            <p>
+              This certificate represents my learning in website structure,
+              responsive design, HTML, CSS, and frontend basics.
+            </p>
+
+            <div class="details">
+              <div>
+                <strong>Platform</strong>
+                <span>Add platform name</span>
+              </div>
+              <div>
+                <strong>Course</strong>
+                <span>Web Development</span>
+              </div>
+              <div>
+                <strong>Year</strong>
+                <span>2026</span>
+              </div>
+            </div>
+
+            <a href="certificate-1.jpg" target="_blank" class="btn">View Certificate</a>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-img">
+            <img src="certificate-2.jpg" alt="Programming Certificate" />
+          </div>
+
+          <div class="cert-content">
+            <h2>Programming Certificate</h2>
+
+            <p>
+              This certificate shows my progress in programming fundamentals,
+              problem solving, logic building, and coding practice.
+            </p>
+
+            <div class="details">
+              <div>
+                <strong>Platform</strong>
+                <span>Add platform name</span>
+              </div>
+              <div>
+                <strong>Course</strong>
+                <span>Programming Basics</span>
+              </div>
+              <div>
+                <strong>Year</strong>
+                <span>2026</span>
+              </div>
+            </div>
+
+            <a href="certificate-2.jpg" target="_blank" class="btn">View Certificate</a>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-img">
+            <img src="certificate-3.jpg" alt="Technology Certificate" />
+          </div>
+
+          <div class="cert-content">
+            <h2>Technology Certificate</h2>
+
+            <p>
+              This certificate is related to my learning in modern technology,
+              digital skills, software tools, or technical knowledge.
+            </p>
+
+            <div class="details">
+              <div>
+                <strong>Platform</strong>
+                <span>Add platform name</span>
+              </div>
+              <div>
+                <strong>Course</strong>
+                <span>Technology Skills</span>
+              </div>
+              <div>
+                <strong>Year</strong>
+                <span>2026</span>
+              </div>
+            </div>
+
+            <a href="certificate-3.jpg" target="_blank" class="btn">View Certificate</a>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      <p>© 2026 Md Faysal Ahmed. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
