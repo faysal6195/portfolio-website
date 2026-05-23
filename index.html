@@ -107,6 +107,13 @@ nav.scrolled{
   position:relative;
   width:min(1120px,92%);margin:0 auto;
 }
+@media(max-width:768px){
+  .hero{
+    min-height:auto;
+    padding:110px 0 60px;
+    justify-content:flex-start;
+  }
+}
 .hero-tag{
   display:inline-flex;align-items:center;gap:8px;
   font-size:12px;font-weight:600;letter-spacing:.12em;
@@ -166,6 +173,7 @@ nav.scrolled{
   content:"";width:1px;height:48px;background:linear-gradient(to bottom,var(--d),transparent);
 }
 @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@media(max-width:768px){.scroll-hint{display:none;}}
 
 /* MARQUEE */
 .marquee-wrap{
