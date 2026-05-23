@@ -381,6 +381,24 @@ nav.scrolled{
 .bp{background:rgba(200,240,76,.1);color:#c8f04c;border:1px solid rgba(200,240,76,.2);}
 .bo{background:rgba(255,180,50,.1);color:#ffa94d;border:1px solid rgba(255,180,50,.2);}
 
+/* See All Certificates button */
+.cert-view-all{
+  margin-top:32px;text-align:center;
+}
+.cert-view-all a{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 32px;border-radius:var(--r);
+  background:transparent;color:var(--a);
+  border:1px solid rgba(200,240,76,0.3);
+  font-size:15px;font-weight:600;
+  transition:.22s;font-family:'Instrument Sans',sans-serif;
+}
+.cert-view-all a:hover{
+  background:rgba(200,240,76,0.07);
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px rgba(200,240,76,0.1);
+}
+
 /* TIMELINE / EDUCATION */
 #education{background:var(--bg);}
 .timeline{display:flex;flex-direction:column;gap:0;}
@@ -489,10 +507,23 @@ footer{
 }
 .page-inner{position:relative;z-index:1;}
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .about-layout,.skills-layout,.contact-layout{grid-template-columns:1fr;gap:48px;}
-  .about-img-area{display:none;}
+  .about-layout{grid-template-columns:1fr;gap:48px;}
+
+  /* ✅ FIX: Mobile e profile picture dekhabe */
+  .about-img-area{display:block;}
+  .about-img-frame{
+    aspect-ratio:1/1;
+    max-width:300px;
+    margin:0 auto;
+  }
+  .about-badge{
+    bottom:-14px;right:0;
+  }
+
+  .skills-layout{grid-template-columns:1fr;gap:48px;}
+  .contact-layout{grid-template-columns:1fr;gap:48px;}
   .skills-cats{flex-direction:row;flex-wrap:wrap;position:static;}
   .tl-item{grid-template-columns:120px 1px 1fr;}
 }
@@ -510,6 +541,7 @@ footer{
   .hero-sub-row{flex-direction:column;align-items:flex-start;}
   .hero-actions{flex-direction:column;width:100%;}
   .btn-a,.btn-b{width:100%;justify-content:center;}
+  .about-img-frame{max-width:240px;}
 }
 </style>
 </head>
@@ -535,7 +567,7 @@ footer{
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
+      <a href="certificates.html">Certificates</a>
       <a href="#contact">Contact</a>
     </div>
     <a href="bio.pdf" download class="nav-cta">Download CV</a>
@@ -551,7 +583,7 @@ footer{
       <p class="hero-desc">Student, web developer & technology enthusiast — building practical projects and growing every day.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn-a">View Projects →</a>
-        <a href="#certificates" class="btn-b">Certificates</a>
+        <a href="certificates.html" class="btn-b">Certificates</a>
       </div>
     </div>
     <div class="scroll-hint">Scroll</div>
@@ -736,12 +768,6 @@ footer{
     </div>
     <div class="certs-grid" id="certsGrid">
 
-      <!-- ─────────────────────────────────────────────────────────────
-           CERTIFICATES — copy a .cc block to add a new one
-           data-cat: web | prog | ml | other
-           badge class: bp=web  bw=prog  bm=ml  bo=other
-      ──────────────────────────────────────────────────────────────── -->
-
       <div class="cc" data-cat="web">
         <div class="cc-top">
           <div class="cc-logo">🌐</div>
@@ -812,9 +838,13 @@ footer{
         </div>
       </div>
 
-      <!-- ─── Add new certificates above this line ─── -->
-
     </div>
+
+    <!-- ✅ Certificates page link -->
+    <div class="cert-view-all">
+      <a href="certificates.html">View All Certificates →</a>
+    </div>
+
   </div>
 </section>
 
@@ -900,7 +930,7 @@ footer{
     <div class="footer-links">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
+      <a href="certificates.html">Certificates</a>
     </div>
   </div>
 </footer>
