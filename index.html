@@ -100,18 +100,17 @@ button{border:none;background:none;cursor:none;font-family:inherit;}
   transition:width .22s,height .22s,border-radius .22s;
 }
 #cur.big{width:52px;height:52px;}
-#cur.pill{width:90px;height:36px;border-radius:999px;}
-#cur.view{width:72px;height:72px;background:var(--fire);}
-.cur-text{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'DM Sans',sans-serif;
-  font-size:10px;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--bg);opacity:0;transition:.2s;
-  white-space:nowrap;
+#cur.pill{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:rgba(255,77,26,.85);
+  border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(6px);
 }
-#cur.view .cur-text,#cur.pill .cur-text{opacity:1;}
+#cur.view{width:72px;height:72px;background:var(--fire);}
+.cur-text{display:none;}
+#cur.view .cur-text,#cur.pill .cur-text{display:none;}
 
 /* ═══════════════════════════════════ BG CANVAS */
 #bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
@@ -210,11 +209,16 @@ nav.scrolled{
 .hero-name{
   font-family:'Fraunces',serif;
   font-weight:900;
-  line-height:.82;
+  line-height:.95;
   letter-spacing:-5px;
   position:relative;
+  padding-bottom:18px;
 }
-.hn-row{overflow:hidden;display:block;}
+.hn-row{
+  overflow:visible;
+  display:block;
+  padding-bottom:10px;
+}
 .hn-row .w{
   display:inline-block;
   opacity:0;transform:translateY(115%) skewY(6deg);
@@ -770,7 +774,7 @@ footer{padding:48px 6%;border-top:1px solid var(--ghost);background:var(--bg);}
   .nav-links{display:none;}
   .proj-item{grid-template-columns:1fr;gap:20px;padding:36px 0;}
   .proj-n{font-size:40px;}
-  .hero-name{letter-spacing:-3px;}
+  .hero-name{letter-spacing:-3px;line-height:1;padding-bottom:12px;}
   .hero-bot{flex-direction:column;}
   body{cursor:auto;}
   #cur{display:none;}
@@ -821,7 +825,7 @@ footer{padding:48px 6%;border-top:1px solid var(--ghost);background:var(--bg);}
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#certificates">Certs</a>
+    <a href="certificates.html">Certs</a>
     <a href="#contact">Contact</a>
   </div>
   <a href="bio.pdf" download class="nav-cta">Download CV</a>
@@ -853,7 +857,7 @@ footer{padding:48px 6%;border-top:1px solid var(--ghost);background:var(--bg);}
       <p class="hero-bio">Student, <strong>web developer</strong> & technology enthusiast — building <strong>practical projects</strong> and growing every single day.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn-fire">View Projects →</a>
-        <a href="#certificates" class="btn-ghost">Certificates</a>
+        <a href="certificates.html" class="btn-ghost">Certificates</a>
       </div>
     </div>
   </div>
@@ -1018,7 +1022,7 @@ footer{padding:48px 6%;border-top:1px solid var(--ghost);background:var(--bg);}
       <h2 class="sec-h">Things I've<br>Built</h2>
     </div>
     <div class="proj-list">
-      <div class="proj-item rv">
+      <a class="proj-item rv" href="https://github.com/faysal6195" target="_blank" rel="noopener noreferrer" aria-label="Open Personal Portfolio Website GitHub">
         <div class="proj-n">01</div>
         <div class="proj-body">
           <h3>Personal Portfolio Website</h3>
@@ -1028,29 +1032,29 @@ footer{padding:48px 6%;border-top:1px solid var(--ghost);background:var(--bg);}
           </div>
         </div>
         <div class="proj-arr">↗</div>
-      </div>
-      <div class="proj-item rv d1">
+      </a>
+      <a class="proj-item rv d1" href="https://github.com/SinthiaSiddiqa/magnet-theft" target="_blank" rel="noopener noreferrer" aria-label="Open Magnet Theft GitHub">
         <div class="proj-n">02</div>
         <div class="proj-body">
-          <h3>Web Application Project</h3>
-          <p>A responsive web application focused on clean layout, user-friendly interface design, and practical real-world functionality.</p>
+          <h3>Magnet Theft</h3>
+          <p>A C++ and FreeGLUT based game project with interactive gameplay, custom logic, and graphical rendering.</p>
           <div class="proj-tags">
-            <span class="ptag">Frontend</span><span class="ptag">React</span><span class="ptag">Responsive</span><span class="ptag">UI/UX</span>
+            <span class="ptag">C++</span><span class="ptag">FreeGLUT</span><span class="ptag">Game</span><span class="ptag">GitHub</span>
           </div>
         </div>
         <div class="proj-arr">↗</div>
-      </div>
-      <div class="proj-item rv d2">
+      </a>
+      <a class="proj-item rv d2" href="https://github.com/SinthiaSiddiqa/healix-chatbot" target="_blank" rel="noopener noreferrer" aria-label="Open Healix GitHub">
         <div class="proj-n">03</div>
         <div class="proj-body">
-          <h3>Machine Learning Project</h3>
-          <p>A ML project involving dataset preprocessing, model training, performance evaluation, and comprehensive result analysis.</p>
+          <h3>Healix — Health Condition Prediction Chatbot</h3>
+          <p>A machine learning based chatbot project using Next.js, Flask, Python, and ML models to predict health condition levels.</p>
           <div class="proj-tags">
-            <span class="ptag">Python</span><span class="ptag">ML</span><span class="ptag">Data Analysis</span><span class="ptag">scikit-learn</span>
+            <span class="ptag">Next.js</span><span class="ptag">Flask</span><span class="ptag">Python</span><span class="ptag">ML</span>
           </div>
         </div>
         <div class="proj-arr">↗</div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1171,7 +1175,7 @@ footer{padding:48px 6%;border-top:1px solid var(--ghost);background:var(--bg);}
     <div class="flinks">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#certificates">Certs</a>
+      <a href="certificates.html">Certs</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -1293,7 +1297,6 @@ footer{padding:48px 6%;border-top:1px solid var(--ghost);background:var(--bg);}
     el.addEventListener('mouseenter',()=>{
       cur.classList.remove('big','pill');
       cur.classList.add('view');
-      ct.textContent='VIEW';
     });
     el.addEventListener('mouseleave',()=>cur.classList.remove('view','big','pill'));
   });
@@ -1301,7 +1304,6 @@ footer{padding:48px 6%;border-top:1px solid var(--ghost);background:var(--bg);}
     el.addEventListener('mouseenter',()=>{
       cur.classList.remove('big','view');
       cur.classList.add('pill');
-      ct.textContent='CLICK';
     });
     el.addEventListener('mouseleave',()=>cur.classList.remove('pill','big','view'));
   });
@@ -1311,15 +1313,14 @@ footer{padding:48px 6%;border-top:1px solid var(--ghost);background:var(--bg);}
 addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
 
 /* ════════════ REVEAL ════════════ */
-const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
     e.target.classList.add('in');
-    e.target.querySelectorAll('.cnt').forEach(el => countUp(el));
-    ro.unobserve(e.target);
+    e.target.querySelectorAll('.cnt').forEach(el=>countUp(el));
   });
-}, { threshold: .1 });
-document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
 
 /* ════════════ COUNT UP ════════════ */
 function countUp(el){
@@ -1412,20 +1413,16 @@ if(heroName){
 }
 
 /* ════════════ SMOOTH SCROLL ════════════ */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href');
-    if (!id || id === '#') return;
-    const t = document.querySelector(id);
-    if (!t) return;
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
     e.preventDefault();
-    t.scrollIntoView({ behavior: 'smooth' });
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth'});
   });
 });
 
 /* ════════════ FORM ════════════ */
-const sendBtn = document.getElementById('fsend');
-if (sendBtn) sendBtn.addEventListener('click',function(){
+document.getElementById('fsend').addEventListener('click',function(){
   this.textContent='Sent! ✓';this.style.background='#cc3d14';
   setTimeout(()=>{this.textContent='Send Message →';this.style.background='';},2500);
 });
